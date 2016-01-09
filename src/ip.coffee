@@ -2,17 +2,17 @@
 #   Network information from your favorite chat bot
 #
 # Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
+#   NONE
 #
 # Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
+#   hubot what is your ip?
+#   hubot what is your public ip?
 #
 # Notes:
-#   <optional notes required for the script>
+#   basic ip info from hubot
 #
 # Author:
-#   Dave York[@<org>]
+#   Dave York[dave.york@me.com]
 
 require 'shelljs/global'
 
