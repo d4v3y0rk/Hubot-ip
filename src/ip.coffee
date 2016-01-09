@@ -14,9 +14,13 @@
 # Author:
 #   Dave York[@<org>]
 
-module.exports = (robot) ->
-  robot.respond /hello/, (msg) ->
-    msg.reply "hello!"
+require 'shelljs/global'
 
-  robot.hear /orly/, ->
-    msg.send "yarly"
+module.exports = (robot) ->
+  robot.respond /what is your public ip/i, (msg) ->
+    publicIp =  JSON.parse(exec('curl -s https://api.ipify.org?format=json', {silent:true}).output).ip
+    msg.send "#{publicIp}"
+
+  robot.respond /what is your ip/i, (msg) ->
+    ip = exec("ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\\.){3}[0-9]*).*/\\2/p'", {silent:true}).output
+    msg.send "#{ip}"
